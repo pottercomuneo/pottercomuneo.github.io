@@ -37,9 +37,6 @@ class FileLoader extends React.Component {
 FileLoader.defaultProps = {
    accept: 'text/*'
 }
-FileLoader.propTypes = {
-   accept: PropTypes.string
-}
 
 class Square extends React.Component {
 	constructor(props) {
