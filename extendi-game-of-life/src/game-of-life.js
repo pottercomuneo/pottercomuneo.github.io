@@ -69,6 +69,7 @@ class Game extends React.Component {
 			board: Array(4).fill(Array(8).fill(false)),
 			generation: 1,
 			src: '',
+			dimensions: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -76,8 +77,21 @@ class Game extends React.Component {
 	handleChange(event) {
 		let file = event.target.files[0], reader = new FileReader(), self = this;
 		reader.onload = function(r){
+			let res = r.target.result;
+			let split_res = res.split('\n');
+			let gen_row = split_res.shift();
+			let dim_row = split_res.shift();
+			let new_board = [];
+			for (var i = 0; i < split_res.length; i++) {
+				for (var j = 0; j < split_res[i].length; j++) {
+					new_board[i][j] = (split_res[i][j]=='*'?true:false);
+				}
+			}
 			self.setState({
-				  src: r.target.result
+				  src: r.target.result,
+				  dimensions: dim_row,
+				  generation: parseInt(gen_row.replace('Generation ', '').replace(':', '')),
+				  board: new_board
 			});
 		}
 		reader.readAsText(file);
