@@ -56,7 +56,7 @@ class Board extends React.Component {
 
 	renderRow(row) {
 		let squares = row.map((alive, index) =>
-			{this.renderSquare(alive, index)}
+			<Square alive={alive} key={index}/>
 		);
 		return squares;
 	}
