@@ -84,11 +84,12 @@ class Game extends React.Component {
 			let dim_row = split_res.shift();
 			let new_board = [];
 			for (var i = 0; i < split_res.length; i++) {
+				let row = [];
 				for (var j = 0; j < split_res[i].length; j++) {
-					// new_board[i][j] = (split_res[i][j]=='*'?true:false);
-					console.log(i, j, split_res[i][j]=='*'?true:false);
+					row.push(split_res[i][j]=='*'?true:false);
 				}
-			}console.log('HER',split_res);
+				new_board.push(row);
+			}
 			self.setState({
 				  src: r.target.result,
 				  dimensions: dim_row,
