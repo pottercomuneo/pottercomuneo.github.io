@@ -1,16 +1,26 @@
 class FileLoader extends React.Component {
 
-	handleChange() {
-		var fr=new FileReader();
-        fr.onload=function(){
-            console.log('text: ', fr.result);
-        }
+	handleChange(event) {console.log('inside', event);
+		let file = event.target.files[0], reader = new FileReader(), self = this;
+      reader.onload = function(r){
+      	console.log(r);
+          // self.setState({
+          //     src: r.target.result
+          // });
+      }
+      reader.readAsData(file);
+      // self.setState({value:reader});
+console.log(reader);
+		// var fr=new FileReader();
+  //       fr.onload=function(){
+  //           console.log('text: ', fr.result);
+  //       }
 	}
   render() {
     return (
       <div className="file-loader">
         <p>Carica il file</p>
-        <input type="file" name="inputfile" onChange={this.handleChange}/>
+        <input type="file" name="inputfile" onChange={handleChange}/>
       </div>
     );
   }
