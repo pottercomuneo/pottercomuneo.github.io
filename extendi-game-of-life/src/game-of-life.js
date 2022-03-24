@@ -38,64 +38,61 @@ FileLoader.defaultProps = {
 	accept: 'text/*'
 }
 
-class Square extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			value: null,
-		};
-	}
-
-	render() {
-		return (
-			<button
-				className="square"
-				onClick={() => this.setState({value: 'X'})}
-			>
-				{this.state.value}
-			</button>
-		);
-	}
+function Square(props)  {
+	return (
+		<div className={"square"+(props.alive?" alive":"")} />
+	);
 }
 
+
 class Board extends React.Component {
-	renderSquare(i) {
-		return <Square />;
+	constructor(props) {
+		super(props);
+	}
+
+	renderSquare(alive) {
+		return <Square alive={alive}/>;
+	}
+
+	renderRow(row) {
+		let squares = row.map((alive) =>
+			{this.renderSquare(alive)}
+		);
+		return {squares};
 	}
 
 	render() {
-		const status = 'Next player: X';
+		const status = 'Generation: ';
+		let rows = this.props.data.map((row) =>
+			<div className="board-row">
+				{this.renderRow(row)}
+			</div>
+		);
 
 		return (
 			<div>
-				<div className="status">{status}</div>
-				<div className="board-row">
-					{this.renderSquare(0)}
-					{this.renderSquare(1)}
-					{this.renderSquare(2)}
-				</div>
-				<div className="board-row">
-					{this.renderSquare(3)}
-					{this.renderSquare(4)}
-					{this.renderSquare(5)}
-				</div>
-				<div className="board-row">
-					{this.renderSquare(6)}
-					{this.renderSquare(7)}
-					{this.renderSquare(8)}
-				</div>
+				<div className="status">{status+this.this.props.generation}</div>
+				{rows}
 			</div>
 		);
 	}
 }
 
 class Game extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			// board: undefined,//Array(9).fill(null),
+			board: Array(4).fill(Array(8).fill(false)),
+			generation: 1,
+		};
+	}
 	render() {
 		return (
 			<div className="game">
 				<FileLoader />
 				<div className="game-board">
-					<Board />
+					<Board data={this.state.board} generation={this.state.generation}/>
 				</div>
 				<div className="game-info">
 					<div>{/* status */}</div>
