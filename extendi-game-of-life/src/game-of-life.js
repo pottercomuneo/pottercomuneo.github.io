@@ -50,22 +50,22 @@ class Board extends React.Component {
 		super(props);
 	}
 
-	renderSquare(alive, index) {
-		return <Square alive={alive} key={index}/>;
-	}
+	// renderSquare(alive, index) {
+	// 	return <Square alive={alive} key={index}/>;
+	// }
 
-	renderRow(row) {
-		let squares = row.map((alive, index) =>
-			{this.renderSquare(alive, index)}
-		);
-		return {squares};
-	}
+	// renderRow(row) {
+	// 	let squares = row.map((alive, index) =>
+	// 		{this.renderSquare(alive, index)}
+	// 	);
+	// 	return {squares};
+	// }
 
 	render() {
 		const status = 'Generation: ';
 		let rows = this.props.data.map((row, index) =>
 			<div className="board-row" key={index}>
-				{this.renderRow(row)}
+				{index}
 			</div>
 		);
 

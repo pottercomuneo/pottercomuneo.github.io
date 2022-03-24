@@ -23,6 +23,12 @@
 		}
 		.square.alive {background-color: black;}
 
+		.board-row:after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+
 		.game {
 			display: flex;
 			flex-direction: row;
