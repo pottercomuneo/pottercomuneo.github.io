@@ -10,12 +10,12 @@ class FileLoader extends React.Component {
 
 	handleChange(event) {console.log('inside', event);
 		let file = event.target.files[0], reader = new FileReader(), self = this;
-		// reader.onload = function(r){
-		// 	console.log(r);
-  //         // self.setState({
-  //         //     src: r.target.result
-  //         // });
-  //     }
+		reader.onload = function(r){
+			// console.log(r);
+          // self.setState({
+          //     src: r.target.result
+          // });
+      }
       reader.readAsText(file);
       // self.setState({value:reader});
       console.log(reader.result);
