@@ -1,5 +1,13 @@
 class FileLoader extends React.Component {
 
+	constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
 	handleChange(event) {console.log('inside', event);
 		let file = event.target.files[0], reader = new FileReader(), self = this;
       reader.onload = function(r){
@@ -20,7 +28,7 @@ console.log(reader);
     return (
       <div className="file-loader">
         <p>Carica il file</p>
-        <input type="file" name="inputfile" onChange={handleChange}/>
+        <input type="file" name="inputfile" onChange={this.handleChange}/>
       </div>
     );
   }
