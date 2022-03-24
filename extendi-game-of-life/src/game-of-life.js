@@ -28,7 +28,7 @@ class FileLoader extends React.Component {
 		return (
 			<div className="file-loader">
 				<p>Carica il file</p>
-				<input type="file" name="inputfile" accept={accept} onChange={this.handleChange}/>
+				<input type="file" name="inputfile" accept={this.props.accept} onChange={this.handleChange}/>
 			</div>
 		);
 	}
