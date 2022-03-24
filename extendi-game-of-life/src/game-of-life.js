@@ -37,7 +37,7 @@ class FileLoader extends React.Component {
 FileLoader.defaultProps = {
    accept: 'text/*'
 }
-InputFileReader.propTypes = {
+FileLoader.propTypes = {
    accept: PropTypes.string
 }
 
