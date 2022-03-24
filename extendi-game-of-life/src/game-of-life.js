@@ -8,27 +8,11 @@ class FileLoader extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	handleChange(event) {console.log('inside', event);
-		let file = event.target.files[0], reader = new FileReader(), self = this;
-		reader.onload = function(r){
-			console.log('1',r);
-			 // self.setState({
-			 //	  src: r.target.result
-			 // });
-		}
-		reader.readAsText(file);
-		// self.setState({value:reader});
-		console.log('2',reader);
-		// var fr=new FileReader();
-  //		 fr.onload=function(){
-  //			  console.log('text: ', fr.result);
-  //		 }
-	}
 	render() {
 		return (
 			<div className="file-loader">
 				<p>Carica il file</p>
-				<input type="file" name="inputfile" accept={this.props.accept} onChange={this.handleChange}/>
+				<input type="file" name="inputfile" accept={this.props.accept} onChange={this.props.handleChange}/>
 			</div>
 		);
 	}
@@ -50,9 +34,9 @@ class Board extends React.Component {
 		super(props);
 	}
 
-	renderSquare(alive, index) {
-		return <Square alive={alive} key={index}/>;
-	}
+	// renderSquare(alive, index) {
+	// 	return <Square alive={alive} key={index}/>;
+	// }
 
 	renderRow(row) {
 		let squares = row.map((alive, index) =>
@@ -85,12 +69,25 @@ class Game extends React.Component {
 			// board: undefined,//Array(9).fill(null),
 			board: Array(4).fill(Array(8).fill(false)),
 			generation: 1,
+			src: '',
 		};
 	}
+
+	handleChange(event) {
+		let file = event.target.files[0], reader = new FileReader(), self = this;
+		reader.onload = function(r){
+			self.setState({
+				  src: r.target.result
+			});
+		}
+		reader.readAsText(file);
+	}
+
 	render() {
 		return (
 			<div className="game">
-				<FileLoader />
+				<pre>{this.state.src}</pre>
+				<FileLoader handleChange={this.handleChange}/>
 				<div className="game-board">
 					<Board data={this.state.board} generation={this.state.generation}/>
 				</div>
