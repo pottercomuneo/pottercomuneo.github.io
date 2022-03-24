@@ -28,10 +28,17 @@ class FileLoader extends React.Component {
 		return (
 			<div className="file-loader">
 				<p>Carica il file</p>
-				<input type="file" name="inputfile" onChange={this.handleChange}/>
+				<input type="file" name="inputfile" accept={accept} onChange={this.handleChange}/>
 			</div>
 		);
 	}
+}
+
+FileLoader.defaultProps = {
+   accept: 'text/*'
+}
+InputFileReader.propTypes = {
+   accept: PropTypes.string
 }
 
 class Square extends React.Component {
