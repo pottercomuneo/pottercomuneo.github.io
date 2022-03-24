@@ -73,6 +73,7 @@ class Game extends React.Component {
 			dimensions: '&nbsp;'
 		};
 		this.handleChange = this.handleChange.bind(this);
+		this.calculateNextGen = this.calculateNextGen.bind(this);
 	}
 
 	handleChange(event) {
@@ -115,7 +116,7 @@ class Game extends React.Component {
 						dimensions={this.state.dimensions}
 					/>
 				</div>
-				<button onClick={this.calculateNextGen}>Calcola generazione successiva</button>
+				<button className="nextgen" onClick={this.calculateNextGen}>Calcola generazione successiva</button>
 				<div className="game-info">
 					<div>{/* status */}</div>
 					<ol>{/* TODO */}</ol>
