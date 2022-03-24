@@ -71,7 +71,7 @@ class Board extends React.Component {
 
 		return (
 			<div>
-				<div className="status">{status+this.this.props.generation}</div>
+				<div className="status">{status+this.props.generation}</div>
 				{rows}
 			</div>
 		);
