@@ -101,8 +101,40 @@ class Game extends React.Component {
 		reader.readAsText(file);
 	}
 
+	getAliveNeighboursCount(coords, data) {
+		let count = 0;
+
+		let row_low_bound = (coords.row-1<0)?0:coords.row-1;
+		let row_hig_bound = (coords.row+1>=data.length)?data.length-1:coords.row+1;
+
+		let col_low_bound = (coords.col-1<0)?0:coords.col-1;
+		let col_hig_bound = (coords.col+1>=data[0].length)?data[0].length-1:coords.col+1;
+
+		for (var i = row_low_bound; i <= row_hig_bound; i++) {
+			for (var j = col_low_bound; j <= col_hig_bound; j++) {
+				if (i != coords.row && j != coords.col && data[i][j])
+					count++;
+			}
+		}
+
+		return count;
+	}
+
 	calculateNextGen() {
-		alert(this.state.generation+1);
+		this.setState((state)  => ({generation: state.generation+1}));
+		let next_board = this.state.board;
+
+		for (var i = 0; i < next_board.length; i++) {
+			for (var j = 0; j < next_board[i].length; j++) {
+				let neighcount = this.getAliveNeighboursCount({row: i, col: j}, this.state.board);
+				if (neighcount < 2 || neighcount > 3)
+					next_board[i][j] = false;
+				else if (neighcount == 3)
+					next_board[i][j] = true;
+			}
+		}
+
+		this.setState({board: next_board});
 	}
 
 	render() {
