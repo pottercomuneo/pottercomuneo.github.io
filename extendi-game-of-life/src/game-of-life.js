@@ -86,6 +86,7 @@ class Game extends React.Component {
 			for (var i = 0; i < split_res.length; i++) {
 				for (var j = 0; j < split_res[i].length; j++) {
 					// new_board[i][j] = (split_res[i][j]=='*'?true:false);
+					console.log(i, j, split_res[i][j]=='*'?true:false);
 				}
 			}console.log('HER',split_res);
 			self.setState({
