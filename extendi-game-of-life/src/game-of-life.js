@@ -55,6 +55,7 @@ class Board extends React.Component {
 		return (
 			<div>
 				<div className="status">{status+this.props.generation}</div>
+				<div className="status">{this.props.dimensions}</div>
 				{rows}
 			</div>
 		);
@@ -103,7 +104,11 @@ class Game extends React.Component {
 				<pre>{this.state.src}</pre>
 				<FileLoader handleChange={this.handleChange}/>
 				<div className="game-board">
-					<Board data={this.state.board} generation={this.state.generation}/>
+					<Board
+						data={this.state.board}
+						generation={this.state.generation}
+						dimensions={this.state.dimensions}
+					/>
 				</div>
 				<div className="game-info">
 					<div>{/* status */}</div>
