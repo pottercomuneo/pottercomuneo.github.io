@@ -11,18 +11,18 @@ class FileLoader extends React.Component {
 	handleChange(event) {console.log('inside', event);
 		let file = event.target.files[0], reader = new FileReader(), self = this;
 		reader.onload = function(r){
-			// console.log(r);
-          // self.setState({
-          //     src: r.target.result
-          // });
-      }
-      reader.readAsText(file);
-      // self.setState({value:reader});
-      console.log(reader.result);
+			console.log('1',r);
+			 // self.setState({
+			 //	  src: r.target.result
+			 // });
+		}
+		reader.readAsText(file);
+		// self.setState({value:reader});
+		console.log('2',reader);
 		// var fr=new FileReader();
-  //       fr.onload=function(){
-  //           console.log('text: ', fr.result);
-  //       }
+  //		 fr.onload=function(){
+  //			  console.log('text: ', fr.result);
+  //		 }
 	}
 	render() {
 		return (
@@ -35,7 +35,7 @@ class FileLoader extends React.Component {
 }
 
 FileLoader.defaultProps = {
-   accept: 'text/*'
+	accept: 'text/*'
 }
 
 class Square extends React.Component {
