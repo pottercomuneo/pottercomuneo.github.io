@@ -70,7 +70,7 @@ class Game extends React.Component {
 			board: Array(4).fill(Array(8).fill(false)),
 			generation: 1,
 			src: '',
-			dimensions: ''
+			dimensions: '&nbsp;'
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -100,10 +100,13 @@ class Game extends React.Component {
 		reader.readAsText(file);
 	}
 
+	calculateNextGen() {
+		alert(this.state.generation+1);
+	}
+
 	render() {
 		return (
 			<div className="game">
-				<pre>{this.state.src}</pre>
 				<FileLoader handleChange={this.handleChange}/>
 				<div className="game-board">
 					<Board
@@ -112,6 +115,7 @@ class Game extends React.Component {
 						dimensions={this.state.dimensions}
 					/>
 				</div>
+				<button onClick={this.calculateNextGen}>Calcola generazione successiva</button>
 				<div className="game-info">
 					<div>{/* status */}</div>
 					<ol>{/* TODO */}</ol>
