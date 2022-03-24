@@ -5,7 +5,6 @@ class FileLoader extends React.Component {
 		this.state = {
 			value: null,
 		};
-		this.handleChange = this.handleChange.bind(this);
 	}
 
 	render() {
@@ -71,6 +70,7 @@ class Game extends React.Component {
 			generation: 1,
 			src: '',
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleChange(event) {
