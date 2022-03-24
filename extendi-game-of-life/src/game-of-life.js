@@ -1,3 +1,21 @@
+class FileLoader extends React.Component {
+
+	handleChange() {
+		var fr=new FileReader();
+        fr.onload=function(){
+            console.log('text: ', fr.result);
+        }
+	}
+  render() {
+    return (
+      <div className="file-loader">
+        <p>Carica il file</p>
+        <input type="file" name="inputfile" onChange={this.handleChange}/>
+      </div>
+    );
+  }
+}
+
 class Square extends React.Component {
   constructor(props) {
     super(props);
@@ -53,6 +71,7 @@ class Game extends React.Component {
   render() {
     return (
       <div className="game">
+      	<FileLoader />
         <div className="game-board">
           <Board />
         </div>
