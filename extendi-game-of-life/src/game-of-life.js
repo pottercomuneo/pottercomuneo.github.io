@@ -122,7 +122,7 @@ class Game extends React.Component {
 
 	calculateNextGen() {
 		this.setState((state)  => ({generation: state.generation+1}));
-		let next_board = this.state.board;
+		let next_board = this.state.board.map(row => row);
 
 		for (var i = 0; i < next_board.length; i++) {
 			for (var j = 0; j < next_board[i].length; j++) {
