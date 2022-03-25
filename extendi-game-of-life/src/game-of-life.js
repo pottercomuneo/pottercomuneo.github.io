@@ -124,9 +124,9 @@ class Game extends React.Component {
 		this.setState((state)  => ({generation: state.generation+1}));
 		let next_board = [];
 
-		for (var i = 0; i < next_board.length; i++) {
+		for (var i = 0; i < this.state.board.length; i++) {
 			let row = [];
-			for (var j = 0; j < next_board[i].length; j++) {
+			for (var j = 0; j < this.state.board[i].length; j++) {
 				let neighcount = this.getAliveNeighboursCount({row: i, col: j}, this.state.board);
 				if (neighcount < 2 || neighcount > 3)
 					row.push(false);
