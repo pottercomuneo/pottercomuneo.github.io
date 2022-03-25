@@ -26,7 +26,10 @@ body {
 	display: table;
 }
 
-.nextgen {margin: 40px;}
+.nextgen {
+	margin: 40px;
+	padding: 15px;
+}
 
 .file-loader {text-align: center;}
 
