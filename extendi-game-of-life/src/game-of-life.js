@@ -112,7 +112,7 @@ class Game extends React.Component {
 
 		for (var i = row_low_bound; i <= row_hig_bound; i++) {
 			for (var j = col_low_bound; j <= col_hig_bound; j++) {
-				if (i != coords.row && j != coords.col && data[i][j])
+				if (!(i == coords.row && j == coords.col) && data[i][j])
 					count++;
 			}
 		}
