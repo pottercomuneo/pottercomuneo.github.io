@@ -10,7 +10,7 @@ class FileLoader extends React.Component {
 	render() {
 		return (
 			<div className="file-loader">
-				<p>Carica il file</p>
+				<p>Upload your file</p>
 				<input type="file" name="inputfile" accept={this.props.accept} onChange={this.props.handleChange}/>
 			</div>
 		);
@@ -66,11 +66,11 @@ class Game extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// board: undefined,//Array(9).fill(null),
-			board: Array(4).fill(Array(8).fill(false)),
+			// board: Array(4).fill(Array(8).fill(false)),
+			board: undefined,
 			generation: 1,
 			src: '',
-			dimensions: '&nbsp;'
+			dimensions: '—'
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.calculateNextGen = this.calculateNextGen.bind(this);
@@ -152,11 +152,7 @@ class Game extends React.Component {
 						dimensions={this.state.dimensions}
 					/>
 				</div>
-				<button className="nextgen" onClick={this.calculateNextGen}>Calcola generazione successiva</button>
-				<div className="game-info">
-					<div>{/* status */}</div>
-					<ol>{/* TODO */}</ol>
-				</div>
+				<button className="nextgen" onClick={this.calculateNextGen}>Calculate next generation</button>
 		</div>
 		);
 	}

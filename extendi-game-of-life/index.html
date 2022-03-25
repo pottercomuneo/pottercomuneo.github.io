@@ -1,43 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
-  </head>
-	<style>
-	  	.square {
-			background: #fff;
-			border: 1px solid #999;
-			float: left;
-			font-size: 24px;
-			font-weight: bold;
-			line-height: 34px;
-			height: 34px;
-			margin-right: -1px;
-			margin-top: -1px;
-			padding: 0;
-			text-align: center;
-			width: 34px;
-		}
-		.square.alive {background-color: black;}
-
-		.board-row:after {
-			clear: both;
-			content: "";
-			display: table;
-		}
-
-		.nextgen {margin: 40px;}
-
-		.game {
-			display: flex;
-			flex-direction: row;
-		}
-	</style>
-  <body>
-    <div id="root"></div>
-    <script type="text/babel" src="src/game-of-life.js"></script>
-  </body>
+	<head>
+	    <meta charset="UTF-8" />
+	    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+	    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+	</head>
+	<link href="style.css" rel="stylesheet">
+ 	<body>
+    	<div id="root"></div>
+    	<script type="text/babel" src="src/game-of-life.js"></script>
+ 	</body>
 </html>
