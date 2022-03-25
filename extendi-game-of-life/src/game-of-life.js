@@ -115,7 +115,7 @@ class Game extends React.Component {
 			self.setState({
 				  src: r.target.result,
 				  dimensions: dim_row,
-				  generation: parseInt(gen_row.replace('Generation ', '').replace(':', '')),
+				  generation: parseInt(gen_row.replace('Generation ', '').replace(':', '')),	// we just get the number from the generation string
 				  board: new_board
 			});
 		}
