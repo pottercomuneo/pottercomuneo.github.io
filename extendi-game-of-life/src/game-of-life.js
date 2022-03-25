@@ -67,7 +67,7 @@ class Game extends React.Component {
 		super(props);
 		this.state = {
 			// board: Array(4).fill(Array(8).fill(false)),
-			board: undefined,
+			board: [],
 			generation: 1,
 			src: '',
 			dimensions: '—'
