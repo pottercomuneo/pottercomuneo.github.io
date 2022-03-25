@@ -122,16 +122,20 @@ class Game extends React.Component {
 
 	calculateNextGen() {
 		this.setState((state)  => ({generation: state.generation+1}));
-		let next_board = this.state.board.map(row => row);
+		let next_board = [];
 
 		for (var i = 0; i < next_board.length; i++) {
+			let row = [];
 			for (var j = 0; j < next_board[i].length; j++) {
 				let neighcount = this.getAliveNeighboursCount({row: i, col: j}, this.state.board);
 				if (neighcount < 2 || neighcount > 3)
-					next_board[i][j] = false;
+					row.push(false);
 				else if (neighcount == 3)
-					next_board[i][j] = true;
+					row.push(true);
+				else
+					row.push(this.state.board[i][j]);
 			}
+			next_board.push(row);
 		}
 
 		this.setState({board: next_board});
